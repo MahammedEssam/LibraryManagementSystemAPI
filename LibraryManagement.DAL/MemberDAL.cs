@@ -135,8 +135,8 @@ namespace LibraryManagement.DAL
                 try
                 {
                     conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
+                    object result = cmd.ExecuteScalar();
+                    return Convert.ToInt32(result) > 0;
                 }
                 catch (SqlException ex)
                 {
